@@ -7,10 +7,12 @@ SERVICE='social'
 
 if ps ax | grep -v grep | grep $SERVICE > /dev/null
 then
-    echo "$SERVICE service running, everything is fine"
+    echo "$SERVICE service running, KILLING"
+	killall -v java
 else
     echo "$SERVICE is not running"
 fi
+
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
@@ -19,16 +21,12 @@ echo NO $LINK_OR_DIR dir - creating....
         mkdir -p "$LINK_OR_DIR"
 		mkdir -p "$LINK_OR_DIR"/backup
 		mkdir -p "$RELEASES"
-		
  else
-        # It's a directory!
-        # Directory command goes here.
-echo nooooo
+echo "Base Dir Already"
     fi
 
 
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
-killall -v java
 CURRENT=$LINK_OR_DIR/current
 
 if [ -f $LINK_OR_DIR/RUNNING_PID ]
@@ -65,9 +63,13 @@ cd $RELEASES/$RELEASE
 unzip *.zip
 fi
 
+CURRENT_RELEASE='ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2}'
+
 if [ ! -d "$CURRENT" ]; then 
 echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 fi
 
-
+echo starting
+echo $CURRENT_RELEASE
+sh $RELEASES/$RELEASE/socialapp-$CURRENT_RELEASE/start
