@@ -65,7 +65,8 @@ if [ ! -d "$CURRENT" ]; then
 echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 fi
-echo starting
-echo $CURRENT_RELEASE
+echo starting SocialApp
+echo CURRENT_RELEASE $CURRENT_RELEASE
+echo LAST_RELEASE $LAST_RELEASE
 sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
 
