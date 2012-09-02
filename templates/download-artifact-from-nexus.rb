@@ -25,7 +25,6 @@ echo NO $LINK_OR_DIR dir - creating....
         # Directory command goes here.
 echo nooooo
     fi
-fi
 
 
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
