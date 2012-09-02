@@ -1,10 +1,10 @@
 
-LINK_OR_DIR=/opt/socialapp/
+LINK_OR_DIR=/opt/socialapp
 RELEASE=`date +%m%d%Y%H%M%S`
 
 killall -v java
 
-if [ -f $LINK_OR_DIR\RUNNING_PID ]
+if [ -f $LINK_OR_DIR/RUNNING_PID ]
 then
    sudo kill -9 `cat RUNNING_PID`
    sudo rm RUNNING_PID
