@@ -2,7 +2,7 @@
 LINK_OR_DIR=/opt/socialapp
 RELEASES=$LINK_OR_DIR/releases
 RELEASE=`date +%m%d%Y%H%M%S`
-
+SAPP_PID=`
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
         # It's a directory!
@@ -23,7 +23,7 @@ then
 fi
 
 
-if [ ! -d "$CURRENT" ]; then 
+if [ -d "$CURRENT" ]; then 
 echo remove sym link
 rm -f $CURRENT
 fi
