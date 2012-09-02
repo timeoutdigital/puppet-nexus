@@ -55,6 +55,7 @@ fi
 
 if [ -f "$RELEASES/$RELEASE/socialapp.zip" ]; then 
 echo UNZIP $RELEASES/$RELEASE/socialapp.zip
+cd $RELEASES/$RELEASE/
 unzip $RELEASES/$RELEASE/socialapp.zip
 fi
 
