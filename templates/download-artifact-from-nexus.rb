@@ -31,7 +31,7 @@ EOF
 # Read in Complete Set of Coordinates from the Command Line
 GROUP_ID=socialapp
 ARTIFACT_ID=socialapp
-VERSION=LATEST
+VERSION="0.1.108"
 CLASSIFIER=dist
 PACKAGING=jar
 REPO="<%= url %>"
