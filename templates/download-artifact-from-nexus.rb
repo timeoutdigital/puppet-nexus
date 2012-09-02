@@ -35,11 +35,11 @@ VERSION=0.1.108
 CLASSIFIER=dist
 PACKAGING=jar
 REPO=<%= url %>
-USERNAME="<%= username %>"
-PASSWORD="<%= password %>"
+USERNAME=<%= username %>
+PASSWORD='<%= password %>'
 VERBOSE=0
 REPO=releases 
-OUTPUT="/opt/socialapp/socialapp-$version-dist.zip"
+OUTPUT=/opt/socialapp/socialapp-$version-dist.zip
 
 while getopts "hva:c:e:o:r:u:p:n:" OPTION
 do
