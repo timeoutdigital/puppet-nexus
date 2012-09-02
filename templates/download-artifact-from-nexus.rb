@@ -72,4 +72,4 @@ fi
 
 echo starting
 echo $CURRENT_RELEASE
-sh $CURRENT/socialapp-$CURRENT_RELEASE/start
+sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
