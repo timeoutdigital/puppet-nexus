@@ -19,12 +19,13 @@ echo NO $LINK_OR_DIR dir - creating....
         mkdir -p "$LINK_OR_DIR"
 		mkdir -p "$LINK_OR_DIR"/backup
 		mkdir -p "$RELEASES"
-fi
+		
  else
         # It's a directory!
         # Directory command goes here.
 echo nooooo
     fi
+fi
 
 
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
