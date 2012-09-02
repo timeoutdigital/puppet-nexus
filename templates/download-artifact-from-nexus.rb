@@ -29,9 +29,9 @@ EOF
 }
 
 # Read in Complete Set of Coordinates from the Command Line
-GROUP_ID=
-ARTIFACT_ID=
-VERSION=
+GROUP_ID=socialapp
+ARTIFACT_ID=socialapp
+VERSION=LATEST
 CLASSIFIER=""
 PACKAGING=jar
 REPO=<%= url %>
