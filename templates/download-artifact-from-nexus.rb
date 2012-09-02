@@ -13,18 +13,14 @@ else
     echo "$SERVICE is not running"
 fi
 
-
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
-        # It's a directory!
-        # Directory command goes here.
         mkdir -p "$LINK_OR_DIR"
 		mkdir -p "$LINK_OR_DIR"/backup
 		mkdir -p "$RELEASES"
  else
 echo "Base Dir Already"
     fi
-
 
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
 CURRENT=$LINK_OR_DIR/current
@@ -41,7 +37,7 @@ rm -f $CURRENT
 fi
 
 if [ ! -d "$RELEASES/$RELEASE" ]; then 
-echo create release dir 
+echo create release $RELEASE dir 
 mkdir -p $RELEASES/$RELEASE
 fi
 
@@ -59,8 +55,7 @@ fi
 
 if [ -f "$RELEASES/$RELEASE/socialapp.zip" ]; then 
 echo UNZIP $RELEASES/$RELEASE/socialapp.zip
-cd $RELEASES/$RELEASE
-unzip *.zip
+unzip $RELEASES/$RELEASE/socialapp.zip
 fi
 
 CURRENT_RELEASE=`ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2}'`
@@ -71,7 +66,6 @@ ln -s $RELEASES/$RELEASE $CURRENT
 fi
 
 sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
-
 
 echo starting
 echo $CURRENT_RELEASE
