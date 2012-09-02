@@ -34,7 +34,7 @@ ARTIFACT_ID=socialapp
 VERSION="0.1.108"
 CLASSIFIER=dist
 PACKAGING=jar
-REPO="<%= url %>"
+REPO=<%= url %>
 USERNAME="<%= username %>"
 PASSWORD="<%= password %>"
 VERBOSE=0
