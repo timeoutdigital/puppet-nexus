@@ -70,6 +70,8 @@ echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 fi
 
+sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
+
+
 echo starting
 echo $CURRENT_RELEASE
-sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
