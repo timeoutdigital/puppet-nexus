@@ -1,7 +1,6 @@
-
 LINK_OR_DIR=/opt/socialapp
 RELEASE=`date +%m%d%Y%H%M%S`
-LAST_RELEASE='ls -x /opt/socialapp|awk '{print $1}'
+LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
 killall -v java
 CURRENT=$LINK_OR_DIR/current
 
