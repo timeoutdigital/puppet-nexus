@@ -63,7 +63,7 @@ cd $RELEASES/$RELEASE
 unzip *.zip
 fi
 
-CURRENT_RELEASE='ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2}'
+CURRENT_RELEASE=`ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2}'`
 
 if [ ! -d "$CURRENT" ]; then 
 echo create sym link
@@ -72,4 +72,4 @@ fi
 
 echo starting
 echo $CURRENT_RELEASE
-sh $RELEASES/$RELEASE/socialapp-$CURRENT_RELEASE/start
+sh $CURRENT/socialapp-$CURRENT_RELEASE/start
