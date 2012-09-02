@@ -22,7 +22,7 @@ echo NO $LINK_OR_DIR dir - creating....
 echo "Base Dir Already"
     fi
 
-LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
+LAST_RELEASE=`ls -x $RELEASES |awk '{print $1}'`
 CURRENT=$LINK_OR_DIR/current
 
 if [ -f $LINK_OR_DIR/RUNNING_PID ]
@@ -67,6 +67,6 @@ ln -s $RELEASES/$RELEASE $CURRENT
 fi
 echo starting SocialApp
 echo CURRENT_RELEASE $CURRENT_RELEASE
-echo LAST_RELEASE $LAST_RELEASE
+echo LAST_RELEASE $LAST_RELEASE  $CURRENT/socialapp-$CURRENT_RELEASE
 sh $CURRENT/socialapp-$CURRENT_RELEASE/start &
 
