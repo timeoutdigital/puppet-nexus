@@ -24,17 +24,28 @@ echo NO $LINK_OR_DIR dir - creating....
 		mkdir -p "$RELEASES"
 fi
 
-mkdir -p $RELEASES/$RELEASE
-cd $RELEASES/$RELEASE
 
+mkdir -p $RELEASES/$RELEASE
+
+if [ -d "$RELEASES/$RELEASE" ]; then 
+echo DOWNLOAD RELEASE
 /opt/nexus-script/download-artifact-from-nexus.sh  \
 -a socialapp:socialapp:LATEST \
 -e jar \
 -c dist \
--o $LINK_OR_DIR/$RELEASE/socialapp.zip \
+-o $RELEASES/$RELEASE/socialapp.zip \
 -r releases \
 -n <%= url %> \
 -u <%= username %> -p '<%= password %>'
+fi
+
+
+if [ ! -f "$RELEASES/$RELEASE/socialapp.zip" ]; then 
+echo UNZIP $RELEASES/$RELEASE/socialapp.zip
+cd $RELEASES/$RELEASE
 unzip *.zip
+fi
+
 
 ln -s $RELEASES/$RELEASE $CURRENT
+
