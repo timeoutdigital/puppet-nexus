@@ -50,6 +50,13 @@ file { "/opt/nexus-script/download-artifact-from-nexus.sh":
 		require  => [File["/opt/nexus-script"]]
 }
 
+file { "/opt/nexus-script/download-artifact-from-nexus-latest.sh":
+		ensure   => file,
+	    owner    => "root",
+	    mode     => "0755",
+		content => template('/nexus/download-artifact-from-nexus.sh'),
+		require  => [File["/opt/nexus-script"]]
+}
 file { "/opt/nexus-script":
 	ensure => directory
 }	
