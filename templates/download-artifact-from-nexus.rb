@@ -28,16 +28,13 @@ if [ ! -d "$LINK_OR_DIR" ]; then
     fi
 fi
 
+mkdir -p $LINK_OR_DIR/$RELEASE
+cd $LINK_OR_DIR/$RELEASE
 /opt/nexus-script/download-artifact-from-nexus.sh  \
 -a socialapp:socialapp:LATEST \
 -e jar \
 -c dist \
--o /opt/socialapp/socialapp-LATEST.zip \
 -r releases \
 -n <%= url %> \
 -u <%= username %> -p '<%= password %>'
-
-
-unzip /opt/socialapp/socialapp-LATEST.zip
-
-
+unzip *.zip
