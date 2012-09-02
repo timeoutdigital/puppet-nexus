@@ -29,7 +29,7 @@ cd $LINK_OR_DIR/$RELEASE
 -a socialapp:socialapp:LATEST \
 -e jar \
 -c dist \
--o /opt/socialapp/1.zip\
+-o /opt/socialapp/1.zip \
 -r releases \
 -n <%= url %> \
 -u <%= username %> -p '<%= password %>'
