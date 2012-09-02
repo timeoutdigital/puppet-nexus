@@ -1,6 +1,6 @@
 
 LINK_OR_DIR=/opt/socialapp
-RELEASES=$LINK_OR_DIR"/releases
+RELEASES=$LINK_OR_DIR/releases
 RELEASE=`date +%m%d%Y%H%M%S`
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
