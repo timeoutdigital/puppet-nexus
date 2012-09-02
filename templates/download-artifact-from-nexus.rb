@@ -22,13 +22,20 @@ then
    sudo rm RUNNING_PID
 fi
 
+
+if [ ! -d "$CURRENT" ]; then 
+echo remove sym link
 rm -f $CURRENT
+fi
+
 
 #rm -f $LINK_OR_DIR/socialapp-LAST_RELEASE $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
 
 
-
+if [ ! -d "$RELEASES/$RELEASE" ]; then 
+echo create release dir 
 mkdir -p $RELEASES/$RELEASE
+fi
 
 if [ -d "$RELEASES/$RELEASE" ]; then 
 echo DOWNLOAD RELEASE
@@ -42,13 +49,15 @@ echo DOWNLOAD RELEASE
 -u <%= username %> -p '<%= password %>'
 fi
 
-
-if [ ! -f "$RELEASES/$RELEASE/socialapp.zip" ]; then 
+if [ -f "$RELEASES/$RELEASE/socialapp.zip" ]; then 
 echo UNZIP $RELEASES/$RELEASE/socialapp.zip
 cd $RELEASES/$RELEASE
 unzip *.zip
 fi
 
-
+if [ ! -d "$CURRENT" ]; then 
+echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
+fi
+
 
