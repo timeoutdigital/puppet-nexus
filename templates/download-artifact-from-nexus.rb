@@ -10,21 +10,14 @@ then
    sudo rm RUNNING_PID
 fi
 
-mv $LINK_OR_DIR/socialapp-LATEST $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
+#mv $LINK_OR_DIR/socialapp-LATEST $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
-    if [ ! -L "$LINK_OR_DIR" ]; then
-        # It is a symlink!
-        # Symbolic link specific commands go here.
-        ln -s "$LINK_OR_DIR" 
-    else
         # It's a directory!
         # Directory command goes here.
         mkdir -p "$LINK_OR_DIR"
 		mkdir -p "$LINK_OR_DIR"/backup
 		mkdir -p "$LINK_OR_DIR"/releases
-
-    fi
 fi
 
 mkdir -p $LINK_OR_DIR/$RELEASE
