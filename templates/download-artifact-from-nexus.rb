@@ -10,7 +10,6 @@ then
    sudo rm RUNNING_PID
 fi
 
-
 mv $LINK_OR_DIR/socialapp-LATEST $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
@@ -34,7 +33,7 @@ cd $LINK_OR_DIR/$RELEASE
 -a socialapp:socialapp:LATEST \
 -e jar \
 -c dist \
--o $LINK_OR_DIR/$RELEASE/socialapp.zip
+-o $LINK_OR_DIR/$RELEASE/socialapp.zip\
 -r releases \
 -n <%= url %> \
 -u <%= username %> -p '<%= password %>'
