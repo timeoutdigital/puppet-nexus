@@ -5,14 +5,12 @@ RELEASE=`date +%m%d%Y%H%M%S`
 SAPP_PID=`ps -ef|grep social|grep -v grep| awk '{print $2}'`
 SERVICE='social'
 
-
 if ps ax | grep -v grep | grep $SERVICE > /dev/null
 then
     echo "$SERVICE service running, everything is fine"
 else
     echo "$SERVICE is not running"
 fi
-
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
@@ -22,6 +20,12 @@ echo NO $LINK_OR_DIR dir - creating....
 		mkdir -p "$LINK_OR_DIR"/backup
 		mkdir -p "$RELEASES"
 fi
+ else
+        # It's a directory!
+        # Directory command goes here.
+echo nooooo
+    fi
+
 
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
 killall -v java
@@ -33,15 +37,10 @@ then
    sudo rm RUNNING_PID
 fi
 
-
 if [ -d "$CURRENT" ]; then 
 echo remove sym link
 rm -f $CURRENT
 fi
-
-
-#rm -f $LINK_OR_DIR/socialapp-LAST_RELEASE $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
-
 
 if [ ! -d "$RELEASES/$RELEASE" ]; then 
 echo create release dir 
