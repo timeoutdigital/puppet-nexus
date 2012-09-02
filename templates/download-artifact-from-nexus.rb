@@ -2,7 +2,18 @@
 LINK_OR_DIR=/opt/socialapp
 RELEASES=$LINK_OR_DIR/releases
 RELEASE=`date +%m%d%Y%H%M%S`
-SAPP_PID=`
+SAPP_PID=`ps -ef|grep social|grep -v grep| awk '{print $2}'`
+SERVICE='social'
+
+
+if ps ax | grep -v grep | grep $SERVICE > /dev/null
+then
+    echo "$SERVICE service running, everything is fine"
+else
+    echo "$SERVICE is not running"
+fi
+
+
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
         # It's a directory!
