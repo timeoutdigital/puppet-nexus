@@ -34,6 +34,7 @@ cd $LINK_OR_DIR/$RELEASE
 -a socialapp:socialapp:LATEST \
 -e jar \
 -c dist \
+-o $LINK_OR_DIR/$RELEASE/socialapp.zip
 -r releases \
 -n <%= url %> \
 -u <%= username %> -p '<%= password %>'
