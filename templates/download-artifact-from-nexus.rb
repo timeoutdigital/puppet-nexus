@@ -32,14 +32,14 @@ EOF
 GROUP_ID=socialapp
 ARTIFACT_ID=socialapp
 VERSION=LATEST
-CLASSIFIER=""
+CLASSIFIER=dist
 PACKAGING=jar
-REPO=<%= url %>
-USERNAME=<%= username %>
-PASSWORD=<%= password %>
+REPO="<%= url %>"
+USERNAME="<%= username %>"
+PASSWORD="<%= password %>"
 VERBOSE=0
-
-OUTPUT=
+REPO=releases 
+OUTPUT="/opt/socialapp/socialapp-$version-dist.zip"
 
 while getopts "hva:c:e:o:r:u:p:n:" OPTION
 do
