@@ -3,6 +3,7 @@ RELEASE=`date +%m%d%Y%H%M%S`
 LAST_RELEASE=`ls -x /opt/socialapp|awk '{print $1}'`
 killall -v java
 CURRENT=$LINK_OR_DIR/current
+RELEASES=$LINK_OR_DIR"/releases
 
 if [ -f $LINK_OR_DIR/RUNNING_PID ]
 then
@@ -14,16 +15,17 @@ rm -f $CURRENT
 
 #rm -f $LINK_OR_DIR/socialapp-LAST_RELEASE $LINK_OR_DIR/socialapp-LATEST-$RELEASE 
 
-if [ -d "$LINK_OR_DIR" ]; then 
+if [ ! -d "$LINK_OR_DIR" ]; then 
+echo NO $LINK_OR_DIR dir - creating....
         # It's a directory!
         # Directory command goes here.
         mkdir -p "$LINK_OR_DIR"
 		mkdir -p "$LINK_OR_DIR"/backup
-		mkdir -p "$LINK_OR_DIR"/releases
+		mkdir -p "$RELEASES"
 fi
 
-mkdir -p $LINK_OR_DIR/$RELEASE
-cd $LINK_OR_DIR/$RELEASE
+mkdir -p $RELEASES/$RELEASE
+cd $RELEASES/$RELEASE
 
 /opt/nexus-script/download-artifact-from-nexus.sh  \
 -a socialapp:socialapp:LATEST \
@@ -35,4 +37,4 @@ cd $LINK_OR_DIR/$RELEASE
 -u <%= username %> -p '<%= password %>'
 unzip *.zip
 
-ln -s $LINK_OR_DIR/$RELEASE $CURRENT
+ln -s $RELEASES/$RELEASE $CURRENT
