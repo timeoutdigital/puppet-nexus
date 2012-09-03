@@ -70,4 +70,4 @@ echo Deployed SocialApp $CURRENT_RELEASE
 echo CURRENT_RELEASE $RELEASE   
 echo LAST_RELEASE $LAST_RELEASE  $CURRENT/socialapp-$CURRENT_RELEASE/start
 chmod +x $CURRENT/socialapp-$CURRENT_RELEASE/start
-"$CURRENT/socialapp-$CURRENT_RELEASE/start > /dev/null &"
+$CURRENT/socialapp-$CURRENT_RELEASE/start > /dev/null '&'
