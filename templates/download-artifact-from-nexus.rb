@@ -4,14 +4,8 @@ RELEASES=$LINK_OR_DIR/releases
 RELEASE=`date +%m%d%Y%H%M%S`
 SAPP_PID=`ps -ef|grep social|grep -v grep| awk '{print $2}'`
 SERVICE='social'
-
-if ps ax | grep -v grep | grep $SERVICE > /dev/null
-then
-    echo "$SERVICE service running, KILLING"
-	killall -v java
-else
-    echo "$SERVICE is not running"
-fi
+LAST_RELEASE=`ls -x $RELEASES |awk '{print $1}'`
+CURRENT=$LINK_OR_DIR/current
 
 if [ ! -d "$LINK_OR_DIR" ]; then 
 echo NO $LINK_OR_DIR dir - creating....
@@ -22,13 +16,12 @@ echo NO $LINK_OR_DIR dir - creating....
 echo "Base Dir Already"
     fi
 
-LAST_RELEASE=`ls -x $RELEASES |awk '{print $1}'`
-CURRENT=$LINK_OR_DIR/current
-
-if [ -f $LINK_OR_DIR/RUNNING_PID ]
+if ps ax | grep -v grep | grep $SERVICE > /dev/null
 then
-   sudo kill -9 `cat RUNNING_PID`
-   sudo rm RUNNING_PID
+    echo "$SERVICE service running, KILLING"
+	killall -v java
+else
+    echo "$SERVICE is not running"
 fi
 
 if [ -d "$CURRENT" ]; then 
