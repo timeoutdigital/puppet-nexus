@@ -66,8 +66,8 @@ echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 fi
 
-echo Deployed SocialApp CURRENT_RELEASE
+echo Deployed SocialApp $CURRENT_RELEASE
 echo CURRENT_RELEASE $RELEASE   
 echo LAST_RELEASE $LAST_RELEASE  $CURRENT/socialapp-$CURRENT_RELEASE/start
-#sh $CURRENT/socialapp-$CURRENT_RELEASE/start > /dev/null &
-
+chmod +x $CURRENT/socialapp-$CURRENT_RELEASE/start
+$CURRENT/socialapp-$CURRENT_RELEASE/start > /dev/null &
