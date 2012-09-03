@@ -57,6 +57,8 @@ CURRENT_RELEASE=`ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2
 if [ ! -d "$CURRENT" ]; then	
 echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
+cd $RELEASES/$RELEASE/socialapp-$CURRENT_RELEASE
+mv * ../
 fi
 
 echo Deployed SocialApp $CURRENT_RELEASE
