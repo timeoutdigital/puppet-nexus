@@ -54,7 +54,7 @@ fi
 
 CURRENT_RELEASE=`ls -x $RELEASES/$RELEASE |awk '{print $1}'|awk -F'-' '{print $2}'`
 
-if [ ! -d "$CURRENT" ]; then 
+if [ ! -d "$CURRENT" ]; then	
 echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 fi
@@ -64,3 +64,4 @@ echo CURRENT_RELEASE $RELEASE
 echo LAST_RELEASE $LAST_RELEASE  $CURRENT/socialapp-$CURRENT_RELEASE/start
 chmod +x $CURRENT/socialapp-$CURRENT_RELEASE/start
 #$CURRENT/socialapp-$CURRENT_RELEASE/start 
+echo `echo $CURRENT_RELEASE` > propsfile
