@@ -59,11 +59,11 @@ echo create sym link
 ln -s $RELEASES/$RELEASE $CURRENT
 cd $RELEASES/$RELEASE/socialapp-$CURRENT_RELEASE
 mv * ../
+chmod +x $CURRENT/start
 fi
 
 echo Deployed SocialApp $CURRENT_RELEASE
 echo CURRENT_RELEASE $RELEASE   
-echo LAST_RELEASE $LAST_RELEASE  $CURRENT/socialapp-$CURRENT_RELEASE/start
-chmod +x $CURRENT/socialapp-$CURRENT_RELEASE/start
-#$CURRENT/socialapp-$CURRENT_RELEASE/start 
-echo `echo $CURRENT_RELEASE` > propsfile
+echo LAST_RELEASE $LAST_RELEASE  
+#$CURRENT/start 
+#echo `echo $CURRENT_RELEASE` > propsfile
